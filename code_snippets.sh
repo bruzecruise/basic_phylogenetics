@@ -14,5 +14,18 @@ cat *.fasta > combo_fasta.fasta
 ## upload file to online aligner tool and download / save output 
 
 ## view MSA files with jalview or aliview
+## trim files 
+
+
+### code to run RAxML 
+## raxml doesnt like any weird characters. need to remove beforehand with code or use aliview.
+conda activate raxml
+sequence="fix_MSA_final16S.fasta"
+THREADS="12"
+NAME="16S_phy_v2"
+
+raxml-ng --all --msa ${sequence} --model GTR+G --prefix ${NAME} --seed 8 --threads ${THREADS} --bs-metric fbp,tbe --tree pars{50},rand{50}
+
+
 
 
